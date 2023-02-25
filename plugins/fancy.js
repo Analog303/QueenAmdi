@@ -14,7 +14,7 @@ const { AMDI, fancy, Language } = require('queen_amdi_core/dist/scripts')
 const {FancyText, fancyList} = fancy;
 const Lang = Language.getString('fancy');
 
-AMDI({ cmd: "fancy", desc: Lang.FONT_DESC, type: "primary", react: "🌈" }, (async (amdiWA) => {
+AMDI({ cmd: "ana", desc: Lang.FONT_DESC, type: "primary", react: "🌈" }, (async (amdiWA) => {
     let { input, prefix, reply, sendListMsg } = amdiWA.msgLayout;
 
     if (!input) return reply(Lang.NEED_WORD)
