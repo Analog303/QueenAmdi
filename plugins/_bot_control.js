@@ -30,6 +30,14 @@ AMDI({ cmd: "restart", desc: "Restart the bot", type: "profile", react: "🔃" }
     await restart();
 }));
 
+
+AMDI({ cmd: "test1", desc: "Restart the bot", type: "profile", react: "🔃" }, (async (amdiWA) => {
+    let { reply, restart } = amdiWA.msgLayout
+
+    await reply('*test01...*');
+ 
+}));
+
 AMDI({ cmd: "stop", desc: "Stop the bot", type: "profile", react: "📴" }, (async (amdiWA) => {
     let { reply } = amdiWA.msgLayout
 
