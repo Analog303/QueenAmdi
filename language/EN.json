@@ -42,6 +42,7 @@
             "adminCMD": "*Group Admin Commands*",
             "downloadCMD": "*Download Commands*",
             "logocmd": "*Logo Commands*",
+            "analog": "*Logo Commands*",
             "profileCMD": "*Profile Commands*",
             "SpecialAdmin": "*(There is special feature that you can block specific commands for the group. Type commands that need to block in the group description without the prefix.)*\n\n"
         },
