@@ -1,17 +1,27 @@
-AMDI({ cmd: ["analog303"], desc: Lang.AliveDesc, type: "primary", react: "????" }, (async (amdiWA) => {
-    let { prefix, sendButtonsMsg } = amdiWA.msgLayout;
+const { AMDI, fancy, Language } = require('queen_amdi_core/dist/scripts')
+const {FancyText, fancyList} = fancy;
+const Lang = Language.getString('fancy');
 
-    var ALIVE_MSG = await getSettings("ALIVE_MSG");
-    if (ALIVE_MSG.input === 'default' || ALIVE_MSG.input == undefined) {
-        const buttons = [
-            {type: "url", displayText: "???? Official Website", url: 'https://amdaniwasa.com/'},
-            {type: "url", displayText: "??? AN Tech YouTube Channel", url: 'https://www.youtube.com/channel/UCZx8U1EU95-Wn9mH4dn15vQ'},
-            {type: "click", displayText: Lang.sysStats, buttonCMD: `${prefix}system`},
-            {type: "click", displayText: Lang.vercheck, buttonCMD: `${prefix}qaversion`}
-        ]
-        return await sendButtonsMsg(buttons, {text: aliveTXT0, image: {url: alivePicURL0}, tagMsg: true});
-    } else {
-        const customMap = ALIVE_MSG.input
-        await customAlive(amdiWA.web, customMap, amdiWA.msgLayout, getSettings);
-    }
+AMDI({ cmd: "analog303", desc: Lang.FONT_DESC, type: "primary", react: "🌈" }, (async (amdiWA) => {
+    let { input, prefix, reply, sendListMsg } = amdiWA.msgLayout;
+
+    if (!input) return reply(Lang.NEED_WORD)
+
+    var listInfo = {}
+    listInfo.title = '╔═══════❪💃🏻♥️❫\n\n▷ *Queen Amdi Fancy Text* ◁'
+    listInfo.text = 'CODED BY BLACK AMDA & RAVINDU MANOJ\n\n╚═════≪ •❈• ≫═════'
+    listInfo.buttonTXT = 'Select text style'  
+
+    var list = await fancyList(prefix, input)
+    return await sendListMsg(listInfo, list);
+}));
+
+
+AMDI({ cmd: "textfancy", type: "primary", cmdHideInMenu: true }, (async (amdiWA) => {
+    let { input, sendClipboard } = amdiWA.msgLayout;
+
+    var text = input.split('////')[1]
+    var type = input.split('////')[0] 
+    var out = await FancyText(text)
+    return await sendClipboard({text: `\n${out[type]}\n`, clip: out[type], reactEmoji: '🦄'});
 }));
