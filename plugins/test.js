@@ -17,7 +17,7 @@ AMDI({ cmd: "analog303", desc: Lang.FONT_DESC, type: "primary", react: "🌈" },
 }));
 
 
-AMDI({ cmd: "textfancy", type: "primary", cmdHideInMenu: true }, (async (amdiWA) => {
+AMDI({ cmd: "textanalog303", type: "primary", cmdHideInMenu: true }, (async (amdiWA) => {
     let { input, sendClipboard } = amdiWA.msgLayout;
 
     var text = input.split('////')[1]
