@@ -1,5 +1,5 @@
 const { AMDI, fancy, Language } = require('queen_amdi_core/dist/scripts')
-const {FancyText, fancyList} = fancy;
+const {FancyText, fancyList} = analog303;
 const Lang = Language.getString('fancy');
 
 AMDI({ cmd: "analog303", desc: Lang.FONT_DESC, type: "primary", react: "🌈" }, (async (amdiWA) => {
