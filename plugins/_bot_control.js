@@ -223,3 +223,15 @@ AMDI({ cmd: "clear", desc: Lang.clearDESC, type: "profile", react: "🚮" }, (as
     }, amdiWA.clientJID);
     return reply("🚮 Chat Cleared!");
 }));
+
+
+AMDI({ cmd: "test2", desc: Lang.clearDESC, type: "profile", react: "🚮" }, (async (amdiWA) => {
+    let { reply, lastMessage } = amdiWA.msgLayout;
+    
+    const lastMsgData = await lastMessage(amdiWA.clientJID);
+    await amdiWA.web.chatModify({
+        delete: true,
+        lastMessages: [{ key: lastMsgData.key, messageTimestamp: lastMsgData.messageTimestamp }]
+    }, amdiWA.clientJID);
+    return reply("🚮 Chat Cleared!");
+}));
